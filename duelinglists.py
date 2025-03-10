@@ -18,3 +18,62 @@
 #Player two's highest number is 8 at index 1
 #Player one's lowest number is 1 at index 4
 #Player two's lowest number is 1 at index 5
+
+import random
+
+player_one_numbers = []
+player_two_numbers = []
+
+for i in range(10):
+    player_one_numbers.append(random.randint(1, 50))
+    player_two_numbers.append(random.randint(1, 50))
+
+player_one_win_count = 0
+player_two_win_count = 0
+
+for i in range(10):
+    num_one = player_one_numbers[i]
+    num_two = player_two_numbers[i]
+    
+    if num_one > num_two:
+        player_one_win_count += 1
+    elif num_two > num_one:
+        player_two_win_count += 1
+
+highest_player_one = player_one_numbers[0]
+highest_player_one_index = 0
+lowest_player_one = player_one_numbers[0]
+lowest_player_one_index = 0
+
+for i in range(1, 10):
+    if player_one_numbers[i] > highest_player_one:
+        highest_player_one = player_one_numbers[i]
+        highest_player_one_index = i
+    if player_one_numbers[i] < lowest_player_one:
+        lowest_player_one = player_one_numbers[i]
+        lowest_player_one_index = i
+
+highest_player_two = player_two_numbers[0]
+highest_player_two_index = 0
+lowest_player_two = player_two_numbers[0]
+lowest_player_two_index = 0
+
+for i in range(1, 10):
+    if player_two_numbers[i] > highest_player_two:
+        highest_player_two = player_two_numbers[i]
+        highest_player_two_index = i
+    if player_two_numbers[i] < lowest_player_two:
+        lowest_player_two = player_two_numbers[i]
+        lowest_player_two_index = i
+
+print("Player One =", player_one_numbers)
+print("Player Two =", player_two_numbers)
+
+print(f"Player one won {player_one_win_count} times")
+print(f"Player two won {player_two_win_count} times")
+
+print(f"Player one's highest number is {highest_player_one} at index {highest_player_one_index}")
+print(f"Player two's highest number is {highest_player_two} at index {highest_player_two_index}")
+
+print(f"Player one's lowest number is {lowest_player_one} at index {lowest_player_one_index}")
+print(f"Player two's lowest number is {lowest_player_two} at index {lowest_player_two_index}")
